@@ -1,15 +1,15 @@
 In the command line, run:
 
 ```bash
-npm install assemble-contrib-decompress --save
+npm install {%= name %} --save
 ```
 
-Next, register the plugin with Assemble in your project's Gruntfile:
+Next, to register the plugin with Assemble in your project's Gruntfile you can either specify the direct path to the plugin(s) (e.g. `./path/to/plugins/*.js`), or if installed via npm, make sure the plugin is in the `devDependencies` of your project.js package.json, and simply add the module's name to the `plugins` option:
 
 ```js
 assemble: {
   options: {
-    plugin: ['{%= name %}', 'other/plugins/*.js']
+    plugins: ['{%= name %}', 'other/plugins/*.js']
   }
 }
 ```

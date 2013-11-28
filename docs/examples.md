@@ -1,10 +1,15 @@
 ```js
 assemble: {
   options: {
-    plugins: ['{%= name %}'],
+    plugins: ['assemble-contrib-download', '{%= name %}'],
+    download: {
+      repo: 'assemble/handlebars-helpers',
+      files: ['docs/helpers.zip'],
+      dest: 'tmp/'
+    }
     decompress: {
-      files: ['tmp/foo.zip'],
-      dest: 'tmp/foo/'
+      files: ['tmp/helpers.zip'],
+      dest: 'docs/helpers/'
     }
   }
 }
