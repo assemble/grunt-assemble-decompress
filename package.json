@@ -1,0 +1,53 @@
+{
+  "name": "assemble-contrib-decompress",
+  "description": "Assemble plugin for extracting zip, tar and tar.gz archives.",
+  "version": "0.1.0",
+  "homepage": "http://assemble.io",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "http://github.com/jonschlinkert/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/assemble/assemble-contrib-decompress/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/assemble/assemble-contrib-decompress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/assemble/assemble-contrib-decompress/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "decompress": "~0.1.4",
+    "lodash": "~2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-readme": "~0.4.0",
+    "grunt-repos": "~0.1.2"
+  },
+  "keywords": [
+    "assemble",
+    "assembleplugin",
+    "assemblecontrib",
+    "assemble plugin",
+    "assemble contrib",
+    "compress",
+    "decompress",
+    "zip",
+    "unzip",
+    "gzip",
+    "grunt"
+  ]
+}
