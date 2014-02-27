@@ -2,7 +2,7 @@
  * assemble-contrib-decompress
  * https://github.com/assemble/assemble-contrib-decompress
  *
- * Copyright (c) 2013 Jon Schlinkert, Brian Woodward, contributors
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors
  * Licensed under the MIT license.
  */
 
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         options: {
           username: 'assemble',
           include: ['contrib'],
-          exclude: ['example', 'rss']
+          exclude: ['example', 'rss', 'decompress']
         },
         files: {
           'docs/repos.json': ['repos?page=1&per_page=100']
