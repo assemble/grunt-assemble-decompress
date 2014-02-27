@@ -15,6 +15,11 @@ var plugin = require('../');
 describe('assemble-contrib-decompress', function() {
 
   describe('when given a file', function() {
+
+    before(function() {
+      grunt.config.set('plugin.decompress.done', undefined);
+    });
+
     it('should unzip it', function(done) {
       var params = {
         stage: 'options:pre:configuration',
@@ -30,9 +35,15 @@ describe('assemble-contrib-decompress', function() {
       };
       plugin(params, done);
     });
+
   });
 
   describe('when given a bad file', function() {
+
+    before(function() {
+      grunt.config.set('plugin.decompress.done', undefined);
+    });
+    
     it('should error', function(done) {
       var params = {
         stage: 'options:pre:configuration',

@@ -38,46 +38,53 @@ var plugin = function(params, callback) {
   var options = params.assemble.options;
   options.decompress = options.decompress || {};
 
-  grunt.log.subhead('Running:'.bold, '"assemble-decompress"');
-  grunt.log.writeln('Stage:  '.bold, '"options:pre:configuration"\n');
+  if(grunt.config.get('plugin.decompress.done') === undefined) {
 
-  // Plugin defaults.
-  // Add "decompress" object to assemble options
-  var opts = _.extend({decompress: {files: ['tmp/helpers.zip']}}, options, config);
+    grunt.log.subhead('Running:'.bold, '"assemble-decompress"');
+    grunt.log.writeln('Stage:  '.bold, '"options:pre:configuration"\n');
 
-  opts.decompress.dest = opts.decompress.dest || 'tmp/helpers/';
-  opts.decompress.ext  = opts.decompress.ext  || '.zip';
+    // Plugin defaults.
+    // Add "decompress" object to assemble options
+    var opts = _.extend({decompress: {files: ['tmp/helpers.zip']}}, options, config);
 
-  async.forEach(opts.decompress.files, function (file, next) {
+    opts.decompress.dest = opts.decompress.dest || 'tmp/helpers/';
+    opts.decompress.ext  = opts.decompress.ext  || '.zip';
 
-    var filename = path.basename(file);
-    var zipfile = fs.createReadStream(file);
+    async.forEach(opts.decompress.files, function (file, next) {
 
-    var unzipped = decompress.extract({
-      path: opts.decompress.dest,
-      ext: opts.decompress.ext
+      var filename = path.basename(file);
+      var zipfile = fs.createReadStream(file);
+
+      var unzipped = decompress.extract({
+        path: opts.decompress.dest,
+        ext: opts.decompress.ext
+      });
+
+      var error = false;
+      // Unzip the files.
+      zipfile.pipe(unzipped)
+      // Log a success message.
+      .on('close', function () {
+        grunt.log.writeln(success('>> Decompressing:'), filename);
+        if (!error) {
+          next();
+        }
+      })
+      .on('error', function (e) {
+        error = true;
+        grunt.log.writeln('Error decompressing: ' + filename);
+        grunt.log.writeln(e);
+        next(e);
+      });
+
+    }, function (err) {
+      grunt.config.set('plugin.decompress.done', true);
+      callback();
     });
 
-    var error = false;
-    // Unzip the files.
-    zipfile.pipe(unzipped)
-    // Log a success message.
-    .on('close', function () {
-      grunt.log.writeln(success('>> Decompressing:'), filename);
-      if (!error) {
-        next();
-      }
-    })
-    .on('error', function (e) {
-      error = true;
-      grunt.log.writeln('Error decompressing: ' + filename);
-      grunt.log.writeln(e);
-      next(e);
-    });
-
-  }, function (err) {
+  } else {
     callback();
-  });
+  }
 };
 
 
