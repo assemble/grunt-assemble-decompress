@@ -58,26 +58,50 @@ assemble: {
 
 
 ## Contributing
-Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble-contrib-decompress/issues). Pull requests are also encouraged.
-If you find this project useful, please consider "starring" it to show your support! Thanks!
+Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble-contrib-decompress/issues).
+
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][], and build the documentation with [grunt-readme](https://github.com/assemble/grunt-readme).
+
+Pull requests are also encouraged, and if you find this project useful please consider "starring" it to show your support! Thanks!
 
 
 ## Assemble plugins
-Here are some related projects you might be interested in from the [Assemble](http://assemble.io) core team. 
+Here are some related projects you might be interested in from the [Assemble](http://assemble.io) core team.  
 
-+ [assemble-contrib-anchors](https://github.com/assemble/assemble-contrib-anchors): Assemble plugin for creating anchor tags from generated html. 
-+ [assemble-contrib-contextual](https://github.com/assemble/assemble-contrib-contextual): Generates a JSON file containing the context of each page. Basic plugin to help see what's happening in the build. 
-+ [assemble-contrib-download](https://github.com/assemble/assemble-contrib-download): Assemble plugin for downloading files from GitHub. 
-+ [assemble-contrib-i18n](https://github.com/assemble/assemble-contrib-i18n): Plugin for adding i18n support to Assemble projects. 
-+ [assemble-contrib-lunr](https://github.com/assemble/assemble-contrib-lunr): Assemble plugin for creating a search engine within your static site using lunr.js. 
-+ [assemble-contrib-markdown](https://github.com/assemble/assemble-contrib-markdown): HEADS UP! This isn't ready for prime time! Convert markdown files to HTML using marked.js. This plugin is an alternative to Assemble's markdown Handlebars helpers. Both are useful in different scenarios. 
-+ [assemble-contrib-pagination](https://github.com/assemble/assemble-contrib-pagination): Pagination plugin for Assemble, the static site generator for Grunt.js and Yeoman. This plugin enables adding pagable list pages. 
-+ [assemble-contrib-permalinks](https://github.com/assemble/assemble-contrib-permalinks): Permalinks plugin for Assemble, the static site generator for Grunt.js and Yeoman. This plugin enables powerful and configurable URI replacement patterns, presets, uses Moment.js for parsing dates, and much more. 
-+ [assemble-contrib-sitemap](https://github.com/assemble/assemble-contrib-sitemap): Sitemap generator plugin for Assemble 
-+ [assemble-contrib-toc](https://github.com/assemble/assemble-contrib-toc): Create a table of contents in the generated HTML, using Cheerio.js 
-+ [assemble-contrib-wordcount](https://github.com/assemble/assemble-contrib-wordcount): Assemble plugin for displaying a word-count on blog posts or pages. 
+#### [assemble-contrib-anchors](https://github.com/assemble/assemble-contrib-anchors) [![NPM version](https://badge.fury.io/js/assemble-contrib-anchors.png)](http://badge.fury.io/js/assemble-contrib-anchors)
+> Assemble plugin for creating anchor tags from generated html.  
+
+#### [assemble-contrib-contextual](https://github.com/assemble/assemble-contrib-contextual) [![NPM version](https://badge.fury.io/js/assemble-contrib-contextual.png)](http://badge.fury.io/js/assemble-contrib-contextual)
+> Generates a JSON file containing the context of each page. Basic plugin to help see what's happening in the build.  
+
+#### [assemble-contrib-download](https://github.com/assemble/assemble-contrib-download) [![NPM version](https://badge.fury.io/js/assemble-contrib-download.png)](http://badge.fury.io/js/assemble-contrib-download)
+> Assemble plugin for downloading files from GitHub.  
+
+#### [assemble-contrib-i18n](https://github.com/assemble/assemble-contrib-i18n) [![NPM version](https://badge.fury.io/js/assemble-contrib-i18n.png)](http://badge.fury.io/js/assemble-contrib-i18n)
+> Plugin for adding i18n support to Assemble projects.  
+
+#### [assemble-contrib-lunr](https://github.com/assemble/assemble-contrib-lunr) [![NPM version](https://badge.fury.io/js/assemble-contrib-lunr.png)](http://badge.fury.io/js/assemble-contrib-lunr)
+> Assemble plugin for creating a search engine within your static site using lunr.js.  
+
+#### [assemble-contrib-markdown](https://github.com/assemble/assemble-contrib-markdown) [![NPM version](https://badge.fury.io/js/assemble-contrib-markdown.png)](http://badge.fury.io/js/assemble-contrib-markdown)
+> HEADS UP! This isn't ready for prime time! Convert markdown files to HTML using marked.js. This plugin is an alternative to Assemble's markdown Handlebars helpers. Both are useful in different scenarios.  
+
+#### [assemble-contrib-pagination](https://github.com/assemble/assemble-contrib-pagination) [![NPM version](https://badge.fury.io/js/assemble-contrib-pagination.png)](http://badge.fury.io/js/assemble-contrib-pagination)
+> Pagination plugin for Assemble, the static site generator for Grunt.js and Yeoman. This plugin enables adding pagable list pages.  
+
+#### [assemble-contrib-permalinks](https://github.com/assemble/assemble-contrib-permalinks) [![NPM version](https://badge.fury.io/js/assemble-contrib-permalinks.png)](http://badge.fury.io/js/assemble-contrib-permalinks)
+> Permalinks plugin for Assemble, the static site generator for Grunt.js and Yeoman. This plugin enables powerful and configurable URI replacement patterns, presets, uses Moment.js for parsing dates, and much more.  
+
+#### [assemble-contrib-sitemap](https://github.com/assemble/assemble-contrib-sitemap) [![NPM version](https://badge.fury.io/js/assemble-contrib-sitemap.png)](http://badge.fury.io/js/assemble-contrib-sitemap)
+> Sitemap generator plugin for Assemble  
+
+#### [assemble-contrib-toc](https://github.com/assemble/assemble-contrib-toc) [![NPM version](https://badge.fury.io/js/assemble-contrib-toc.png)](http://badge.fury.io/js/assemble-contrib-toc)
+> Create a table of contents in the generated HTML, using Cheerio.js  
+
+#### [assemble-contrib-wordcount](https://github.com/assemble/assemble-contrib-wordcount) [![NPM version](https://badge.fury.io/js/assemble-contrib-wordcount.png)](http://badge.fury.io/js/assemble-contrib-wordcount)
+> Assemble plugin for displaying a word-count on blog posts or pages. 
+
 Visit [assemble.io/plugins](http:/assemble.io/plugins/) for more information about [Assemble](http:/assemble.io/) plugins.
-
 
 
 ## Authors
