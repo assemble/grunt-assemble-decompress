@@ -1,10 +1,6 @@
 /**
- * Assemble
- *
  * Assemble <http://assemble.io>
- * Created and maintained by Jon Schlinkert and Brian Woodward
- *
- * Copyright (c) 2014 Assemble.
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT License (MIT).
  */
 
@@ -43,7 +39,7 @@ describe('assemble-contrib-decompress', function() {
     before(function() {
       grunt.config.set('plugin.decompress.done', undefined);
     });
-    
+
     it('should error', function(done) {
       var params = {
         stage: 'options:pre:configuration',

@@ -25,36 +25,9 @@ module.exports = function(grunt) {
     mochaTest: {
       tests: {
         options: {
-          reporter: 'progress'
+          reporter: 'spec'
         },
-        src: ['test/**/*_test.js']
-      }
-    },
-
-    /**
-     * Pull down a list of repos from Github.
-     * (bundled with the readme task)
-     */
-    repos: {
-      assemble: {
-        options: {
-          username: 'assemble',
-          include: ['contrib'],
-          exclude: ['example', 'rss', 'decompress']
-        },
-        files: {
-          'docs/repos.json': ['repos?page=1&per_page=100']
-        }
-      }
-    },
-
-    /**
-     * Extend context for templates
-     * with repos.json
-     */
-    readme: {
-      options: {
-        metadata: ['docs/repos.json']
+        src: ['test/test.js']
       }
     }
   });
@@ -62,10 +35,8 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.loadNpmTasks('grunt-readme');
-  grunt.loadNpmTasks('grunt-repos');
-
+  grunt.loadNpmTasks('grunt-verb');
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'mochaTest', 'readme']);
+  grunt.registerTask('default', ['jshint', 'mochaTest', 'verb']);
 };

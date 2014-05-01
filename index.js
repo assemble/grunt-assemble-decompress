@@ -55,7 +55,7 @@ var plugin = function(params, callback) {
       var filename = path.basename(file);
       var zipfile = fs.createReadStream(file);
 
-      var unzipped = decompress.extract({
+      var unzipped = decompress({
         path: opts.decompress.dest,
         ext: opts.decompress.ext
       });
