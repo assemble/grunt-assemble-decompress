@@ -1,8 +1,8 @@
 {
-  "name": "assemble-contrib-decompress",
+  "name": "assemble-middleware-decompress",
   "description": "Assemble plugin for extracting zip, tar and tar.gz archives.",
   "version": "0.1.4",
-  "homepage": "https://github.com/assemble/assemble-contrib-decompress",
+  "homepage": "https://github.com/assemble/assemble-middleware-decompress",
   "author": {
     "name": "Jon Schlinkert",
     "url": "http://github.com/jonschlinkert/"
@@ -10,16 +10,16 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble-contrib-decompress/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/assemble-middleware-decompress/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/assemble/assemble-contrib-decompress.git"
+    "url": "git://github.com/assemble/assemble-middleware-decompress.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/assemble-contrib-decompress/issues"
+    "url": "https://github.com/assemble/assemble-middleware-decompress/issues"
   },
   "engines": {
     "node": ">=0.8"

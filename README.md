@@ -1,12 +1,14 @@
-# assemble-contrib-decompress [![NPM version](https://badge.fury.io/js/assemble-contrib-decompress.png)](http://badge.fury.io/js/assemble-contrib-decompress)
+# assemble-middleware-decompress [![NPM version](https://badge.fury.io/js/assemble-middleware-decompress.png)](http://badge.fury.io/js/assemble-middleware-decompress)
 
 > Assemble plugin for extracting zip, tar and tar.gz archives.
+
+**Upgrade notice!** v0.2.0 or greater of this plugin depend on Assemble v0.5.0. _This plugin will not work with Assemble v0.4.0!_
 
 ## Install
 Install with [npm](npmjs.org):
 
 ```bash
-npm i assemble-contrib-decompress --save
+npm i assemble-middleware-decompress --save
 ```
 
 
@@ -14,7 +16,7 @@ Next, add the plugin to the Assemble options:
 
 ```js
 options: {
-  plugins: ['assemble-contrib-decompress', 'other/plugins/*.js']
+  plugins: ['assemble-middleware-decompress', 'other/plugins/*.js']
 }
 ```
 Visit the [plugins docs](http://assemble.io/plugins/) for more info about plugins or for help getting started.
@@ -37,7 +39,7 @@ Destination for the decompressed files.
 ```js
 assemble: {
   options: {
-    plugins: ['assemble-contrib-download', 'assemble-contrib-decompress'],
+    plugins: ['assemble-contrib-download', 'assemble-middleware-decompress'],
     download: {
       repo: 'assemble/handlebars-helpers',
       files: ['docs/helpers.zip'],
@@ -75,7 +77,7 @@ Visit [assemble.io/plugins](http:/assemble.io/plugins/) for more information abo
 
 
 ## Contributing
-Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble-contrib-decompress/issues).
+Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble-middleware-decompress/issues).
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality,
 and run `docs` in the command line to build the docs with [Verb](https://github.com/assemble/verb).
