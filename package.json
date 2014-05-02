@@ -1,7 +1,7 @@
 {
   "name": "assemble-middleware-decompress",
   "description": "Assemble plugin for extracting zip, tar and tar.gz archives.",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "homepage": "https://github.com/assemble/assemble-middleware-decompress",
   "author": {
     "name": "Jon Schlinkert",
