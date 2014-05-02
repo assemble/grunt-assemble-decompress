@@ -17,19 +17,21 @@ describe('assemble-contrib-decompress', function() {
     });
 
     it('should unzip it', function(done) {
-      var params = {
-        stage: 'options:pre:configuration',
-        assemble: {
-          options: {
-            decompress: {
-              files: ['test/fixtures/files.zip'],
-              dest: 'test/actual/'
-            }
-          }
-        },
-        grunt: grunt
+      var assemble = {
+        config: {
+          decompress: {
+            files: ['test/fixtures/files.zip'],
+            dest: 'test/actual/'
+          },
+          grunt: grunt
+        }
       };
-      plugin(params, done);
+
+      var params = {
+        event: 'assemble:before:configuration',
+      };
+
+      plugin(assemble)['assemble-middleware-decompress'](params, done);
     });
 
   });
@@ -41,23 +43,31 @@ describe('assemble-contrib-decompress', function() {
     });
 
     it('should error', function(done) {
+      var assemble = {
+        config: {
+          decompress: {
+            files: ['test/fixtures/error.zip'],
+            dest: 'test/actual/'
+          },
+          grunt: grunt
+        }
+      };
+
       var params = {
-        stage: 'options:pre:configuration',
-        assemble: {
-          options: {
-            decompress: {
-              files: ['test/fixtures/error.zip'],
-              dest: 'test/actual/'
-            }
-          }
-        },
-        grunt: grunt
+        event: 'assemble:before:configuration',
       };
 
       try {
-        plugin(params, done);
+        plugin(assemble)['assemble-middleware-decompress'](params, function (err) {
+          if (err) {
+            done();
+          } else {
+            done(new Error('Should have thrown an error'));
+          }
+        });
       } catch (err) {
-        console.log('error throw!', err);
+        console.log('error thrown!', err);
+        done();
       }
     });
   });

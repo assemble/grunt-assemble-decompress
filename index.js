@@ -27,67 +27,63 @@ var error    = chalk.red;
 var info     = chalk.cyan;
 
 
-// Run this plugin before the 'configuration' stage.
-var config = {
-  stage: 'options:pre:configuration'
-};
 
-var plugin = function(params, callback) {
-
-  var grunt   = params.grunt;
-  var options = params.assemble.options;
+module.exports = function (assemble) {
+  var grunt = assemble.config.grunt;
+  var options = assemble.config;
   options.decompress = options.decompress || {};
 
-  if(grunt.config.get('plugin.decompress.done') === undefined) {
+  var middleware = function(params, next) {
 
-    grunt.log.subhead('Running:'.bold, '"assemble-decompress"');
-    grunt.log.writeln('Stage:  '.bold, '"options:pre:configuration"\n');
+    if(grunt.config.get('plugin.decompress.done') === undefined) {
 
-    // Plugin defaults.
-    // Add "decompress" object to assemble options
-    var opts = _.extend({decompress: {files: ['tmp/helpers.zip']}}, options, config);
+      // Plugin defaults.
+      // Add "decompress" object to assemble options
+      var opts = _.extend({decompress: {files: ['tmp/helpers.zip']}}, options);
 
-    opts.decompress.dest = opts.decompress.dest || 'tmp/helpers/';
-    opts.decompress.ext  = opts.decompress.ext  || '.zip';
+      opts.decompress.dest = opts.decompress.dest || 'tmp/helpers/';
+      opts.decompress.ext  = opts.decompress.ext  || '.zip';
 
-    async.forEach(opts.decompress.files, function (file, next) {
+      async.forEach(opts.decompress.files, function (file, nextFile) {
 
-      var filename = path.basename(file);
-      var zipfile = fs.createReadStream(file);
+        var filename = path.basename(file);
+        var zipfile = fs.createReadStream(file);
 
-      var unzipped = decompress({
-        path: opts.decompress.dest,
-        ext: opts.decompress.ext
+        var unzipped = decompress({
+          path: opts.decompress.dest,
+          ext: opts.decompress.ext
+        });
+
+        var error = false;
+        // Unzip the files.
+        zipfile.pipe(unzipped)
+        // Log a success message.
+        .on('close', function () {
+          grunt.log.writeln(success('>> Decompressing:'), filename);
+          if (!error) {
+            nextFile();
+          }
+        })
+        .on('error', function (e) {
+          error = true;
+          grunt.log.writeln('Error decompressing: ' + filename);
+          grunt.log.writeln(e);
+          nextFile(e);
+        });
+
+      }, function (err) {
+        grunt.config.set('plugin.decompress.done', true);
+        next(err);
       });
 
-      var error = false;
-      // Unzip the files.
-      zipfile.pipe(unzipped)
-      // Log a success message.
-      .on('close', function () {
-        grunt.log.writeln(success('>> Decompressing:'), filename);
-        if (!error) {
-          next();
-        }
-      })
-      .on('error', function (e) {
-        error = true;
-        grunt.log.writeln('Error decompressing: ' + filename);
-        grunt.log.writeln(e);
-        next(e);
-      });
+    } else {
+      next();
+    }
+  };
 
-    }, function (err) {
-      grunt.config.set('plugin.decompress.done', true);
-      callback();
-    });
+  middleware.event = 'assemble:before:configuration';
 
-  } else {
-    callback();
-  }
+  return {
+    'assemble-middleware-decompress': middleware
+  };
 };
-
-
-// export the plugin and options.
-plugin.options = config;
-module.exports = plugin;
