@@ -57,7 +57,6 @@
     "related": {
       "list": [
         "grunt-assemble",
-        "assemble",
         "grunt-assemble-anchors",
         "grunt-assemble-contextual",
         "grunt-assemble-decompress"
