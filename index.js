@@ -1,9 +1,8 @@
-/**
- * grunt-assemble-decompress
- * Assemble plugin for decompressing .zip files
+/*!
+ * grunt-assemble-decompress <https://github.com/assemble/grunt-assemble-decompress>
  *
- * Copyright (c) 2014 Jon Schlinkert
- * MIT License
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
  */
 
 'use strict';
@@ -21,10 +20,12 @@ var _ = require('lodash');
 
 
 // Console colors
-var bold     = chalk.bold;
-var success  = chalk.green;
-var error    = chalk.red;
-var info     = chalk.cyan;
+var colors = {
+  bold: chalk.bold,
+  success: chalk.green,
+  error: chalk.red,
+  info: chalk.cyan,
+};
 
 
 // Run this plugin before the 'configuration' stage.
@@ -35,7 +36,7 @@ var config = {
 var plugin = function(params, callback) {
 
   var grunt   = params.grunt;
-  var options = params.assemble.options;
+  var options = params.assemble.options || {};
   options.decompress = options.decompress || {};
 
   if(grunt.config.get('plugin.decompress.done') === undefined) {
@@ -65,7 +66,7 @@ var plugin = function(params, callback) {
       zipfile.pipe(unzipped)
       // Log a success message.
       .on('close', function () {
-        grunt.log.writeln(success('>> Decompressing:'), filename);
+        grunt.log.writeln(colors.success('>> Decompressing:'), filename);
         if (!error) {
           next();
         }
@@ -79,7 +80,7 @@ var plugin = function(params, callback) {
 
     }, function (err) {
       grunt.config.set('plugin.decompress.done', true);
-      callback();
+      callback(err);
     });
 
   } else {

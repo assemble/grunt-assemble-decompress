@@ -1,14 +1,15 @@
-/**
- * Assemble <http://assemble.io>
- * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
- * Licensed under the MIT License (MIT).
+/*!
+ * grunt-assemble-decompress <https://github.com/assemble/grunt-assemble-decompress>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
  */
 
 var expect = require('chai').expect
 var grunt = require('grunt');
 var plugin = require('../');
 
-describe('assemble-contrib-decompress', function() {
+describe('grunt-assemble-decompress', function() {
 
   describe('when given a file', function() {
 
@@ -17,21 +18,19 @@ describe('assemble-contrib-decompress', function() {
     });
 
     it('should unzip it', function(done) {
-      var assemble = {
-        config: {
-          decompress: {
-            files: ['test/fixtures/files.zip'],
-            dest: 'test/actual/'
-          },
-          grunt: grunt
-        }
-      };
-
       var params = {
-        event: 'assemble:before:configuration',
+        stage: 'options:pre:configuration',
+        assemble: {
+          options: {
+            decompress: {
+              files: ['test/fixtures/files.zip'],
+              dest: 'test/actual'
+            }
+          }
+        },
+        grunt: grunt
       };
-
-      plugin(assemble)['assemble-middleware-decompress'](params, done);
+      plugin(params, done);
     });
 
   });
@@ -43,28 +42,21 @@ describe('assemble-contrib-decompress', function() {
     });
 
     it('should error', function(done) {
-      var assemble = {
-        config: {
-          decompress: {
-            files: ['test/fixtures/error.zip'],
-            dest: 'test/actual/'
-          },
-          grunt: grunt
-        }
-      };
-
       var params = {
-        event: 'assemble:before:configuration',
+        stage: 'options:pre:configuration',
+        assemble: {
+          config: {
+            decompress: {
+              files: ['test/fixtures/error.zip'],
+              dest: 'test/actual/'
+            },
+          }
+        },
+        grunt: grunt
       };
 
       try {
-        plugin(assemble)['assemble-middleware-decompress'](params, function (err) {
-          if (err) {
-            done();
-          } else {
-            done(new Error('Should have thrown an error'));
-          }
-        });
+        plugin(params, done);
       } catch (err) {
         console.log('error thrown!', err);
         done();
