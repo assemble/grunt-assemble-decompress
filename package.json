@@ -1,8 +1,8 @@
 {
-  "name": "assemble-middleware-decompress",
+  "name": "grunt-assemble-decompress",
   "description": "Assemble plugin for extracting zip, tar and tar.gz archives.",
-  "version": "0.2.0",
-  "homepage": "https://github.com/assemble/assemble-middleware-decompress",
+  "version": "0.1.0",
+  "homepage": "https://github.com/assemble/grunt-assemble-decompress",
   "author": {
     "name": "Jon Schlinkert",
     "url": "http://github.com/jonschlinkert/"
@@ -10,16 +10,16 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble-middleware-decompress/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/grunt-assemble-decompress/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/assemble/assemble-middleware-decompress.git"
+    "url": "git://github.com/assemble/grunt-assemble-decompress.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/assemble-middleware-decompress/issues"
+    "url": "https://github.com/assemble/grunt-assemble-decompress/issues"
   },
   "engines": {
     "node": ">=0.8"
@@ -31,7 +31,6 @@
     "decompress": "~0.2.3"
   },
   "devDependencies": {
-    "grunt-verb": "~0.2.2",
     "chai": "~1.9.1",
     "grunt": "~0.4.4",
     "grunt-mocha-test": "~0.10.2",
@@ -49,5 +48,16 @@
     "unzip",
     "gzip",
     "grunt"
-  ]
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "grunt-assemble",
+        "assemble",
+        "grunt-assemble-anchors",
+        "grunt-assemble-contextual",
+        "grunt-assemble-decompress"
+      ]
+    }
+  }
 }
