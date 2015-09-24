@@ -2,8 +2,6 @@
 
 > Assemble plugin for extracting zip, tar and tar.gz archives.
 
-## Install
-
 ```sh
 $ npm i grunt-assemble-decompress --save
 ```
