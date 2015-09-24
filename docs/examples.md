@@ -1,7 +1,7 @@
 ```js
 assemble: {
   options: {
-    plugins: ['assemble-contrib-download', '{%= name %}'],
+    plugins: ['grunt-assemble-download', '{%= name %}'],
     download: {
       repo: 'assemble/handlebars-helpers',
       files: ['docs/helpers.zip'],

@@ -39,7 +39,7 @@ Destination for the decompressed files.
 ```js
 assemble: {
   options: {
-    plugins: ['assemble-contrib-download', 'grunt-assemble-decompress'],
+    plugins: ['grunt-assemble-download', 'grunt-assemble-decompress'],
     download: {
       repo: 'assemble/handlebars-helpers',
       files: ['docs/helpers.zip'],
